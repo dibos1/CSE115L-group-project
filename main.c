@@ -1,7 +1,10 @@
 #include <stdio.h>
+#define RATE_PER_PAGE 4.00
 
 int main(void)
 {
+    int taskNum = 0, numPages, numCopies, isDuplex, isUrgent ;
+
     // Header
     printf("+================================================+\n");
     printf("|         Campus Print & Copy Hub System         |\n");
@@ -22,6 +25,16 @@ int main(void)
     printf("+------------------------------------------------+\n");
     printf("|  Choose an option to continue                  |\n");
     printf("+------------------------------------------------+\n\n");
+
+    taskNum = taskNum + 1;
+    printf("Enter number of pages >> ");
+    scanf("%d", &numPages);
+    printf("Enter number of copies >> ");
+    scanf("%d", &numCopies);
+    printf("Duplex print? (1-YES, 0-NO) >> ");
+    scanf("%d", &isDuplex);
+    printf("Urgent? (1-YES, 0-NO) >> ");
+    scanf("%d", &isUrgent);
 
     // Specimen task record
     printf("+================================================+\n");
