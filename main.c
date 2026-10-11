@@ -3,7 +3,7 @@
 
 int main(void)
 {
-    int taskNum = 0, numPages, numCopies, isDuplex, isUrgent ;
+    int taskNum = 0, numPages, numCopies, isDuplex, isUrgent;
 
     // Header
     printf("+================================================+\n");
@@ -36,6 +36,11 @@ int main(void)
     printf("Urgent? (1-YES, 0-NO) >> ");
     scanf("%d", &isUrgent);
 
+    int sheetsPerCopy = isDuplex * ((numPages + 1) / 2) + (1 - isDuplex) * numPages;
+    int totalSheets = sheetsPerCopy * numCopies;
+    double totalCost = totalSheets * RATE_PER_PAGE;
+    int queuePosition = isUrgent * taskNum + (1 - isUrgent) * (taskNum + 1); // innacurate, only placeholder
+
     // Specimen task record
     printf("+================================================+\n");
     printf("|               Specimen Task Token              |\n");
@@ -47,8 +52,8 @@ int main(void)
     printf("  Print mode\t\t: Duplex, Coloured\n");
     printf("  Priority status\t: Regular\n\n");
     printf("--------------------------------------------------\n");
-    printf("  Pages per copy\t: 7 page(s)\n"); // Uses the formula: ( number of document pages + 1 ) / 2; the remainder must be excluded.
-    printf("  Total pages\t\t: 21 page(s)\n"); // Uses the formula: pages per copy * number of copies.
+    printf("  Pages per copy\t: 7 page(s)\n");  // Uses the formula: ( number of document pages + 1 ) / 2; the remainder must be excluded.
+    printf("  Total pages\t\t: 21 page(s)\n");  // Uses the formula: pages per copy * number of copies.
     printf("  Estimated price\t: BDT 84.00\n"); // Uses the formula: total pages * rate of page.
     printf("  Pos. in queue\t\t: 3\n");
     printf("--------------------------------------------------\n");
